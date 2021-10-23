@@ -1,6 +1,7 @@
 package julien.hammer.p4lamzone.model;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 
 import java.util.Arrays;
 import java.util.List;
@@ -38,5 +39,15 @@ public class Room {
     @Override
     public String toString() {
         return getName();
+    }
+
+    @Override
+    public int hashCode() {
+        return super.hashCode();
+    }
+
+    @Override
+    public boolean equals(@Nullable Object obj) {
+        return super.equals(obj);
     }
 }

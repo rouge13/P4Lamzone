@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Locale;
 
 import julien.hammer.p4lamzone.model.Meeting;
 import julien.hammer.p4lamzone.model.Room;
@@ -16,7 +17,7 @@ import julien.hammer.p4lamzone.model.User;
 public  abstract class ProjectMareuGenerator {
 
     //current date format
-    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MMM dd, yyyy");
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MM dd yyyy hh:mm:ss", Locale.FRANCE);
 
     public static List<User> FAKE_USERS = Arrays.asList(
             new User(1, "Julien", "Julien.test@lamzone.com"),
@@ -49,10 +50,9 @@ public  abstract class ProjectMareuGenerator {
     static {
         try {
             FAKE_MEETINGS = Arrays.asList(
-
-                                new Meeting(1, dateFormat.parse("Jan 17, 2012"), dateFormat.parse("Jan 17, 2012"), "reunion A", new ArrayList<>(Arrays.asList(FAKE_USERS.get(1), FAKE_USERS.get(2))), FAKE_ROOMS.get(1)),
-                                new Meeting(2, dateFormat.parse("Jan 17, 2012"), dateFormat.parse("Jan 17, 2012"), "reunion B", new ArrayList<>(Arrays.asList(FAKE_USERS.get(3), FAKE_USERS.get(4))), FAKE_ROOMS.get(2)),
-                                new Meeting(3, dateFormat.parse("Jan 17, 2012"), dateFormat.parse("Jan 17, 2012"), "reunion C", new ArrayList<>(Arrays.asList(FAKE_USERS.get(5), FAKE_USERS.get(6))), FAKE_ROOMS.get(3))
+                                new Meeting(1, dateFormat.parse("01 17 2012 10:00:00"), dateFormat.parse("01 17 2012 12:00:00"), "reunion A", Arrays.asList(FAKE_USERS.get(1), FAKE_USERS.get(2)), FAKE_ROOMS.get(1)),
+                                new Meeting(2, dateFormat.parse("01 17 2012 10:00:00"), dateFormat.parse("01 17 2012 12:00:00"), "reunion B", Arrays.asList(FAKE_USERS.get(3), FAKE_USERS.get(4)), FAKE_ROOMS.get(2)),
+                                new Meeting(3, dateFormat.parse("01 17 2012 09:00:00"), dateFormat.parse("01 17 2012 11:00:00"), "reunion C", Arrays.asList(FAKE_USERS.get(5), FAKE_USERS.get(6)), FAKE_ROOMS.get(3))
                 );
         } catch (ParseException e) {
             e.printStackTrace();

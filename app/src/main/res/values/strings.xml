@@ -1,3 +1,14 @@
 <resources>
-    <string name="app_name">P4Lamzone</string>
+    <string name="app_name">Ma réu</string>
+    <string name="room"><u>The room</u></string>
+    <string name="users"><u>The user(s)</u></string>
+    <string name="subject">The subject</string>
+    <string name="mail">E-mail</string>
+    <string name="addMail">Add E-mail</string>
+    <string name="save">Save</string>
+    <string name="date">Select day</string>
+    <string name="timeStart">Start time</string>
+    <string name="timeEnd">End time</string>
+    <string name="meetingItemTitle">%s-%s-%s</string>
+
 </resources>

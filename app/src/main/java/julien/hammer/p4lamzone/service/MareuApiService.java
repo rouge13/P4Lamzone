@@ -31,4 +31,6 @@ public interface MareuApiService {
     // Get all the meetings
     List<Meeting> getMeetings();
 
+    // Delete a specific meeting
+    void deleteMeeting(Meeting meetingToDelete);
 }
