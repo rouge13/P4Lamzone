@@ -20,17 +20,17 @@ public  abstract class ProjectMareuGenerator {
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MM dd yyyy hh:mm:ss", Locale.FRANCE);
 
     public static List<User> FAKE_USERS = Arrays.asList(
-            new User(1, "Julien", "Julien.test@lamzone.com"),
-            new User(2, "Charles", "Charles.test@lamzone.com"),
-            new User(3, "Nathalie", "Nathalie.test@lamzone.com"),
-            new User(4, "Jean", "Jean.test@lamzone.com"),
-            new User(5, "Thomas", "Thomas.test@lamzone.com"),
-            new User(6, "Olivia", "Olivia.test@lamzone.com"),
-            new User(7, "Sebastien", "Sebastien.test@lamzone.com"),
-            new User(8, "Christelle", "Christelle.test@lamzone.com"),
-            new User(9, "Alexandra", "Alexandra.test@lamzone.com"),
-            new User(10, "Josy", "Josy.test@lamzone.com"),
-            new User(11, "Francis", "Francis.test@lamzone.com")
+            new User(1, "Julien", "Julien@lamzone.com"),
+            new User(2, "Charles", "Charles@lamzone.com"),
+            new User(3, "Nathalie", "Nathalie@lamzone.com"),
+            new User(4, "Jean", "Jean@lamzone.com"),
+            new User(5, "Thomas", "Thomas@lamzone.com"),
+            new User(6, "Olivia", "Olivia@lamzone.com"),
+            new User(7, "Sebastien", "Sebastien@lamzone.com"),
+            new User(8, "Christelle", "Christelle@lamzone.com"),
+            new User(9, "Alexandra", "Alexandra@lamzone.com"),
+            new User(10, "Josy", "Josy@lamzone.com"),
+            new User(11, "Francis", "Francis@lamzone.com")
     );
 
     public static final List<Room> FAKE_ROOMS = Arrays.asList(

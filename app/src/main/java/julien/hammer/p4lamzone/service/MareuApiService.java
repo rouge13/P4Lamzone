@@ -33,4 +33,7 @@ public interface MareuApiService {
 
     // Delete a specific meeting
     void deleteMeeting(Meeting meetingToDelete);
+
+    // Add a new meeting
+    void createMeeting(Meeting meeting);
 }

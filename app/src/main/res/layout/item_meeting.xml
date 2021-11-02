@@ -8,22 +8,19 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/pastil_states_item_list"
         android:layout_width="@dimen/pastil_states_width"
         android:layout_height="@dimen/pastil_states_height"
         android:layout_marginStart="@dimen/pastil_states_margin_start"
         android:layout_marginTop="@dimen/pastil_states_margin_top"
         android:layout_marginBottom="@dimen/pastil_states_margin_bottom"
-        app:tint="@color/pale_green"
+        app:srcCompat="@drawable/ic_baseline_brightness_1_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@id/title_item_list"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_brightness_1_24"
-        android:layout_marginLeft="@dimen/pastil_states_margin_start"
-        tools:ignore="VectorDrawableCompat"
-        android:contentDescription="TODO" />
+        android:layout_marginLeft="@dimen/pastil_states_margin_start"/>
 
     <TextView
         android:id="@+id/title_item_list"
@@ -54,6 +51,7 @@
         tools:text="paul@lamzone.com, viviane@lamzone..."
         android:textAlignment="textStart"
         android:textSize="@dimen/mails_list_text_size"
+        android:ellipsize="end"
         app:layout_constraintEnd_toStartOf="@+id/item_list_delete_button"
         app:layout_constraintStart_toEndOf="@id/pastil_states_item_list"
         app:layout_constraintTop_toBottomOf="@id/title_item_list"
@@ -68,7 +66,7 @@
         android:layout_marginTop="@dimen/ic_delete_item_margin_top"
         android:layout_marginEnd="@dimen/ic_delete_item_margin_end"
         android:layout_marginBottom="@dimen/ic_delete_item_margin_bottom"
-        android:src="@drawable/ic_baseline_delete_24"
+        app:srcCompat="@drawable/ic_baseline_delete_24"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/title_item_list"

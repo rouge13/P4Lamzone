@@ -23,7 +23,18 @@ public class ProjectMareuApiService implements MareuApiService {
     @Override
     public List<Meeting> getMeetings() { return meetings; }
 
+
     public void deleteMeeting(Meeting meetingToDelete) {
         meetings.remove(meetingToDelete);
     }
+    /**
+     * {@inheritDoc}
+     * @param meeting
+     */
+    @Override
+    public void createMeeting(Meeting meeting) {
+        meetings.add(meeting);
+    }
+
+
 }

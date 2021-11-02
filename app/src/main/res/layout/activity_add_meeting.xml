@@ -24,7 +24,7 @@
             android:layout_marginTop="20dp">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/name"
+                android:id="@+id/subject_name"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -49,14 +49,16 @@
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="false"
+                android:enabled="true"
                 android:layout_gravity="end"
                 app:cornerRadius="20dp"
                 android:text="@string/date"
                 android:id="@+id/btn_date"
                 android:layout_alignBottom="@+id/in_date"
                 android:layout_toRightOf="@+id/in_date"
-                android:layout_toEndOf="@+id/in_date" />
+                android:layout_toEndOf="@+id/in_date"
+
+                />
 
             <EditText
                 android:layout_width="200dp"
@@ -70,7 +72,7 @@
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="false"
+                android:enabled="true"
                 android:layout_gravity="end"
                 app:cornerRadius="20dp"
                 android:text="@string/timeStart"
@@ -91,7 +93,7 @@
                 style="@style/Widget.MaterialComponents.Button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:enabled="false"
+                android:enabled="true"
                 android:layout_gravity="end"
                 app:cornerRadius="20dp"
                 android:text="@string/timeEnd"
@@ -121,14 +123,15 @@
                 android:hint="@string/room"
             />
         </GridLayout>
-        <androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView
+        <MultiAutoCompleteTextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/textEmailAddress"
             android:hint="@string/mail"
+
             >
 
-        </androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView>
+        </MultiAutoCompleteTextView>
 
         <!--        <GridLayout-->
 <!--            android:layout_width="match_parent"-->

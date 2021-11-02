@@ -1,5 +1,6 @@
 package julien.hammer.p4lamzone;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -13,6 +14,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 
@@ -95,8 +97,13 @@ public class MainActivity extends AppCompatActivity {
      */
     @Subscribe
     public void onDeleteMeeting(DeleteMeetingEvent event) {
+        Context context = getApplicationContext();
+        CharSequence text = "Suppression de la réunion bien effectué";
+        int duration = Toast.LENGTH_SHORT;
+        Toast.makeText(context, text, duration).show();
         mApiService.deleteMeeting(event.meeting);
         initList();
+
     }
     @OnClick(R.id.add_meeting)
     void addMeetings() {

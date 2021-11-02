@@ -10,5 +10,5 @@
     <string name="timeStart">Start time</string>
     <string name="timeEnd">End time</string>
     <string name="meetingItemTitle">%s-%s-%s</string>
-
+    <string name="new_meeting">Add a new meeting</string>
 </resources>
