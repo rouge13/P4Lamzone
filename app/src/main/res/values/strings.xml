@@ -11,4 +11,16 @@
     <string name="timeEnd">End time</string>
     <string name="meetingItemTitle">%s-%s-%s</string>
     <string name="new_meeting">Add a new meeting</string>
+    <string name="subject_empty">"Saisissez le sujet."</string>
+    <string name="meeting_day_empty">"Veuillez selectionner une date pour la réunion."</string>
+    <string name="meeting_time_start_empty">"Saisissez l'heure du démarrage de la réunion."</string>
+    <string name="meeting_time_End_empty">"Saisissez l'heure de fin de la réunion."</string>
+    <string name="empty_room">"Veuillez choisir une salle de réunion."</string>
+    <string name="room_already_booked">"Cette salle de réunion est déjà prise durant ce créneau horaire."</string>
+    <string name="meeting_user_empty">"Attention veuillez ajouter des personnes dans la réunion."</string>
+    <string name="add_users_mail">Add E-mails</string>
+    <string name="date_filter_selected">Filtre par date.</string>
+    <string name="room_filter_selected">Filtre par salle.</string>
+
+
 </resources>

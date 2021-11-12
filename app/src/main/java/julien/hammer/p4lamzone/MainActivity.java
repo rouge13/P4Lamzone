@@ -12,6 +12,8 @@ import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
@@ -44,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.list_meetings)
     RecyclerView mRecyclerView;
+
 //    private RecyclerView mRecyclerView;
     private ProjectMareuApiService mProjectMareuApiService;
     private MareuRecyclerViewAdapter mMareuRecyclerViewAdapter;
@@ -54,7 +57,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 //        setSupportActionBar(mToolbar);
+    }
 
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.filter, menu);
+        return true;
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

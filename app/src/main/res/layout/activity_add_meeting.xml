@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/main_layout"
-    tools:context=".ui.mareu.AddMeetingActivity">
+<!--<androidx.constraintlayout.widget.ConstraintLayout -->
+<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:id="@+id/main_layout"-->
+<!--    tools:context=".ui.mareu.AddMeetingActivity">-->
 
     <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:layout_marginStart="18dp"
         android:layout_marginEnd="18dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:context=".ui.mareu.AddMeetingActivity">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/subject"
@@ -31,6 +36,15 @@
                 android:hint="@string/subject"
                 android:inputType="textMultiLine" />
         </com.google.android.material.textfield.TextInputLayout>
+        <MultiAutoCompleteTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/textEmailAddress"
+        android:hint="@string/mail"
+        tools:text="@string/add_users_mail"
+        >
+
+        </MultiAutoCompleteTextView>
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -123,15 +137,7 @@
                 android:hint="@string/room"
             />
         </GridLayout>
-        <MultiAutoCompleteTextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/textEmailAddress"
-            android:hint="@string/mail"
 
-            >
-
-        </MultiAutoCompleteTextView>
 
         <!--        <GridLayout-->
 <!--            android:layout_width="match_parent"-->
@@ -182,11 +188,11 @@
 <!--            android:text="@string/addMail"/>-->
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/create"
+            android:id="@+id/create_meeting"
             style="@style/Widget.MaterialComponents.Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:enabled="false"
+            android:enabled="true"
             android:layout_gravity="end"
             app:cornerRadius="20dp"
             android:layout_marginTop="20dp"
@@ -194,4 +200,4 @@
 
     </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+<!--</androidx.constraintlayout.widget.ConstraintLayout>-->

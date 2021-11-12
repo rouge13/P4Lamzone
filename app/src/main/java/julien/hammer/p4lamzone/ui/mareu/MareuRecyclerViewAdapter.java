@@ -70,7 +70,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         Meeting meeting = mMeetings.get(position);
         Date date = meeting.getStartOfTheMeeting(); // your date
 
-        DateFormat dateFormat = new SimpleDateFormat("hh:mm", Locale.FRANCE);
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.FRANCE);
         String strDate = dateFormat.format(date);
         holder.mMeetingTitleItem.setText(holder.mMeetingTitleItem.getContext().getString(R.string.meetingItemTitle,meeting.getSubject(), strDate, meeting.getRoom().getName()));
 //        holder.mMeetingTitleItem.setText(String.format( meeting.getSubject(), strDate, meeting.getRoom()));

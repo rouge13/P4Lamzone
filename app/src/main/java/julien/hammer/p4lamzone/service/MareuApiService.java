@@ -1,5 +1,6 @@
 package julien.hammer.p4lamzone.service;
 
+import java.util.Date;
 import java.util.List;
 
 import julien.hammer.p4lamzone.model.Meeting;
@@ -36,4 +37,7 @@ public interface MareuApiService {
 
     // Add a new meeting
     void createMeeting(Meeting meeting);
+
+    // Check if the room is already booked
+    boolean checkRoomBookedOff(int roomId, Date startDate, Date endDate) ;
 }

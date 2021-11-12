@@ -31,6 +31,8 @@ public  abstract class ProjectMareuGenerator {
             new User(9, "Alexandra", "Alexandra@lamzone.com"),
             new User(10, "Josy", "Josy@lamzone.com"),
             new User(11, "Francis", "Francis@lamzone.com")
+//            new User(12, "Nathalie2", "Nathalie2@lamzone.com")
+
     );
 
     public static final List<Room> FAKE_ROOMS = Arrays.asList(

@@ -1,5 +1,6 @@
 package julien.hammer.p4lamzone.service;
 
+import java.util.Date;
 import java.util.List;
 
 import julien.hammer.p4lamzone.model.Meeting;
@@ -36,5 +37,20 @@ public class ProjectMareuApiService implements MareuApiService {
         meetings.add(meeting);
     }
 
-
+    // Check if the rooms is already booked
+    public boolean checkRoomBookedOff(int roomId, Date startDate, Date endDate) {
+        for (Meeting meeting : meetings) {
+            if (roomId == meeting.getRoom().getId()) {
+                if (meeting.getStartOfTheMeeting().after(startDate)
+                        && meeting.getStartOfTheMeeting().before(endDate)
+                        || meeting.getEndOfTheMeeting().after(startDate)
+                        && meeting.getEndOfTheMeeting().before(endDate)
+                        || meeting.getStartOfTheMeeting().before(startDate)
+                        && meeting.getEndOfTheMeeting().after(endDate)) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
 }
