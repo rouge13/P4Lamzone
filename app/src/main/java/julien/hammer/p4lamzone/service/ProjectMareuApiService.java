@@ -1,5 +1,9 @@
 package julien.hammer.p4lamzone.service;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -14,16 +18,14 @@ public class ProjectMareuApiService implements MareuApiService {
     private final List<User> users = ProjectMareuGenerator.generateUsers();
     private final List<Room> rooms = ProjectMareuGenerator.generateRooms();
     private final List<Meeting> meetings = ProjectMareuGenerator.generateMeetings();
-
+    private final List<Meeting> meetingsByDate = ProjectMareuGenerator.generateMeetingsByDate();
+    private final List<Meeting> meetingsByRoom = ProjectMareuGenerator.generateMeetingsByRoom();
     @Override
     public List<User> getUsers() { return users; }
-
     @Override
     public List<Room> getRooms() { return rooms; }
-
     @Override
     public List<Meeting> getMeetings() { return meetings; }
-
 
     public void deleteMeeting(Meeting meetingToDelete) {
         meetings.remove(meetingToDelete);
@@ -52,5 +54,29 @@ public class ProjectMareuApiService implements MareuApiService {
             }
         }
         return true;
+    }
+    public List<Meeting> getMeetingsByDate(Date date) {
+        meetingsByDate.clear();
+        Calendar c = Calendar.getInstance();
+        c.setTime(date);
+        for (Meeting meeting : meetings) {
+            Calendar cal = Calendar.getInstance();
+            cal.setTime(meeting.getStartOfTheMeeting());
+                if (c.get(Calendar.YEAR) == cal.get(Calendar.YEAR) && c.get(Calendar.MONTH) == cal.get(Calendar.MONTH) && c.get(Calendar.DAY_OF_MONTH) == cal.get(Calendar.DAY_OF_MONTH) ) {
+                    meetingsByDate.add(meeting);
+                }
+        }
+        return meetingsByDate;
+    }
+
+    @Override
+    public List<Meeting> getMeetingsByRoom(Room room) {
+        meetingsByRoom.clear();
+        for (Meeting meeting : meetings) {
+            if (meeting.getRoom()==room) {
+                meetingsByRoom.add(meeting);
+            }
+        }
+        return meetingsByRoom;
     }
 }

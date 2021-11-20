@@ -52,6 +52,8 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         this.mUsers = mUsers;
         this.mRooms = mRooms;
     }
+
+
 //    @BindDrawable(R.drawable.ic_baseline_brightness_pale_green_1_24)
 //    public Drawable mPastilMoreThan5CanJoin;
 //    @BindDrawable(R.drawable.ic_baseline_brightness_pale_orange_1_24)

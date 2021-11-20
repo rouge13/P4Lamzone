@@ -31,8 +31,6 @@ public  abstract class ProjectMareuGenerator {
             new User(9, "Alexandra", "Alexandra@lamzone.com"),
             new User(10, "Josy", "Josy@lamzone.com"),
             new User(11, "Francis", "Francis@lamzone.com")
-//            new User(12, "Nathalie2", "Nathalie2@lamzone.com")
-
     );
 
     public static final List<Room> FAKE_ROOMS = Arrays.asList(
@@ -42,7 +40,7 @@ public  abstract class ProjectMareuGenerator {
             new Room(4, "Toad"),
             new Room(5, "Yoshi"),
             new Room(6, "Daisy"),
-            new Room(7, "Diddy Kong"),
+            new Room(7, "Kong"),
             new Room(8, "Harmonie"),
             new Room(9, "Wario"),
             new Room(10, "Waluigi")
@@ -52,9 +50,9 @@ public  abstract class ProjectMareuGenerator {
     static {
         try {
             FAKE_MEETINGS = Arrays.asList(
-                                new Meeting(1, dateFormat.parse("01 17 2012 10:00:00"), dateFormat.parse("01 17 2012 12:00:00"), "reunion A", Arrays.asList(FAKE_USERS.get(1), FAKE_USERS.get(2)), FAKE_ROOMS.get(1)),
-                                new Meeting(2, dateFormat.parse("01 17 2012 10:00:00"), dateFormat.parse("01 17 2012 12:00:00"), "reunion B", Arrays.asList(FAKE_USERS.get(3), FAKE_USERS.get(4)), FAKE_ROOMS.get(2)),
-                                new Meeting(3, dateFormat.parse("01 17 2012 09:00:00"), dateFormat.parse("01 17 2012 11:00:00"), "reunion C", Arrays.asList(FAKE_USERS.get(5), FAKE_USERS.get(6)), FAKE_ROOMS.get(3))
+                                new Meeting(1, dateFormat.parse("11 15 2021 10:00:00"), dateFormat.parse("11 15 2021 12:00:00"), "reunion A", Arrays.asList(FAKE_USERS.get(1), FAKE_USERS.get(2)), FAKE_ROOMS.get(1)),
+                                new Meeting(2, dateFormat.parse("11 15 2021 10:00:00"), dateFormat.parse("11 15 2021 12:00:00"), "reunion B", Arrays.asList(FAKE_USERS.get(3), FAKE_USERS.get(4)), FAKE_ROOMS.get(2)),
+                                new Meeting(3, dateFormat.parse("11 14 2021 09:00:00"), dateFormat.parse("11 14 2021 11:00:00"), "reunion C", Arrays.asList(FAKE_USERS.get(5), FAKE_USERS.get(6)), FAKE_ROOMS.get(3))
                 );
         } catch (ParseException e) {
             e.printStackTrace();
@@ -63,6 +61,20 @@ public  abstract class ProjectMareuGenerator {
 
     static List<Meeting> generateMeetings() {
         return new ArrayList<>(FAKE_MEETINGS);
+    }
+
+    // Créer une nouvelle liste MEETING_BY_DATE_LIST pour stocker les Meetings qui sont classé par Date
+    public static List<Meeting> MEETING_BY_DATE_LIST = Arrays.asList();
+    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
+    static List<Meeting> generateMeetingsByDate() {
+        return new ArrayList<>(MEETING_BY_DATE_LIST);
+    }
+
+    // Créer une nouvelle liste MEETING_BY_ROOM_LIST pour stocker les Meetings qui sont classé par Date
+    public static List<Meeting> MEETING_BY_ROOM_LIST = Arrays.asList();
+    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
+    static List<Meeting> generateMeetingsByRoom() {
+        return new ArrayList<>(MEETING_BY_ROOM_LIST);
     }
 
     static List<Room> generateRooms() {

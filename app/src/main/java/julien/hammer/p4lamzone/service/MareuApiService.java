@@ -32,6 +32,11 @@ public interface MareuApiService {
     // Get all the meetings
     List<Meeting> getMeetings();
 
+    // Get all the meetings sorted by date
+    List<Meeting> getMeetingsByDate(Date date);
+    // Get all the meetings sorted by room
+    List<Meeting> getMeetingsByRoom(Room room);
+
     // Delete a specific meeting
     void deleteMeeting(Meeting meetingToDelete);
 
@@ -40,4 +45,6 @@ public interface MareuApiService {
 
     // Check if the room is already booked
     boolean checkRoomBookedOff(int roomId, Date startDate, Date endDate) ;
+
+
 }

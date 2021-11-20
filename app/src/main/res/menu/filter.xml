@@ -9,14 +9,15 @@
         <menu>
             <item
                 android:id="@+id/date_filter"
-                android:orderInCategory="100"
-                android:title="@string/date_filter_selected"
-                app:showAsAction="never" />
+                android:title="@string/date_filter_selected" />
 
             <item
                 android:id="@+id/room_filter"
-                android:orderInCategory="200"
                 android:title="@string/room_filter_selected" />
+
+            <item
+                android:id="@+id/cancel_filters"
+                android:title="@string/cancel_filters" />
 
         </menu>
     </item>

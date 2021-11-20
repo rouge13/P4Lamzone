@@ -21,6 +21,8 @@
     <string name="add_users_mail">Add E-mails</string>
     <string name="date_filter_selected">Filtre par date.</string>
     <string name="room_filter_selected">Filtre par salle.</string>
+    <string name="cancel_filters">Annuler les filtres.</string>
+
 
 
 </resources>

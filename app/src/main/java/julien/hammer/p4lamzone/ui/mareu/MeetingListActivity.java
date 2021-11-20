@@ -13,10 +13,10 @@ import julien.hammer.p4lamzone.R;
  * Created by Julien HAMMER - Apprenti Java with openclassrooms on .
  */
 public class MeetingListActivity extends AppCompatActivity {
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.date_filter)
-    MenuItem mDateFilter;
-    @SuppressLint("NonConstantResourceId")
-    @BindView(R.id.room_filter)
-    MenuItem mRoomFilter;
+//    @SuppressLint("NonConstantResourceId")
+//    @BindView(R.id.date_filter)
+//    MenuItem mDateFilter;
+//    @SuppressLint("NonConstantResourceId")
+//    @BindView(R.id.room_filter)
+//    MenuItem mRoomFilter;
 }
