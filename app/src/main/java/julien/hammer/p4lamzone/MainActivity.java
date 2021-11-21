@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
@@ -173,6 +174,7 @@ public class MainActivity extends AppCompatActivity {
         AddMeetingActivity.navigate(this);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void dateSelected() {
             final Calendar c = Calendar.getInstance();
             // Get Current Date
@@ -197,7 +199,8 @@ public class MainActivity extends AppCompatActivity {
 
                         }
                     }, c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH));
-            datePickerDialog.show();
+              datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.MONDAY);
+              datePickerDialog.show();
 
     }
 

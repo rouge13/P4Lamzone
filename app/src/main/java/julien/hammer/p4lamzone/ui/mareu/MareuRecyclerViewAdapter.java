@@ -96,7 +96,6 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
                 CharSequence text = userEmailList.toString().replace("[","").replace("]","");
                 int duration = Toast.LENGTH_LONG;
                 Toast toast = Toast.makeText(context, text, duration);
-                toast.setGravity(Gravity.CENTER,0,0);
                 toast.show();
             }
         });

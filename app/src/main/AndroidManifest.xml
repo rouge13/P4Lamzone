@@ -16,9 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.mareu.MeetingListActivity"></activity>
-        <activity android:name=".ui.mareu.AddMeetingActivity"
-            android:parentActivityName=".ui.mareu.AddMeetingActivity">
+        <activity android:name=".ui.mareu.AddMeetingActivity">
+
         </activity>
 
     </application>

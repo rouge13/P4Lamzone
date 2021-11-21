@@ -67,14 +67,7 @@ import julien.hammer.p4lamzone.service.MareuApiService;
  */
 public class AddMeetingActivity extends AppCompatActivity {
     private MareuApiService mApiService;
-//    private final List<Meeting> mMeetings;
-//
-//    {
-//        assert false;
-//        mMeetings = mApiService.getMeetings();
-//    }
     private List<User> mUsers = null;
-    private final List<Room> mRooms = null;
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.spinner_room_to_select)
     Spinner mSpinnerRooms;
@@ -120,8 +113,7 @@ public class AddMeetingActivity extends AppCompatActivity {
     Boolean mMeetingStartTimeAdded = false;
     Boolean mMeetingEndTimeAdded = false;
 
-
-
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -136,11 +128,6 @@ public class AddMeetingActivity extends AppCompatActivity {
         configureDayOfMeetingSelected();
         configureStartTimeOfMeetingSelected();
         configureEndTimeOfMeetingSelected();
-
-
-
-
-
     }
     private void configureSpinnerRoom() {
         //get List Room
@@ -150,7 +137,7 @@ public class AddMeetingActivity extends AppCompatActivity {
             roomNameList.add(room.getName());
         }
 //        mSpinnerRooms = (Spinner)findViewById(R.id.spinner_room_to_select);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,roomNameList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerRooms.setAdapter(adapter);
@@ -167,18 +154,24 @@ public class AddMeetingActivity extends AppCompatActivity {
         });
     }
 
+
     private void configureMultiAutoComplete() {
         mUsers = mApiService.getUsers();
         for(User user:mUsers){
-            userEmailList.add(user.getEmail().toLowerCase());
+                userEmailList.add(user.getEmail().toLowerCase());
         }
 //        AppCompatMultiAutoCompleteTextView mTextEmailAddress = findViewById(R.id.textEmailAddress);
         ArrayAdapter<String> adapterEmail
                 = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,userEmailList);
         mTextEmailAddress.setAdapter(adapterEmail);
+
         mTextEmailAddress.setThreshold(1);
         // The text separated by commas
         mTextEmailAddress.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+//        userEmailList.remove(adapterEmail.getItem().);
+//         } else {
+//             popupErrorMessage( R.string.already_in_list );
+//         }
     }
 
     /**
@@ -223,7 +216,6 @@ public class AddMeetingActivity extends AppCompatActivity {
         } else if (!mApiService.checkRoomBookedOff(idRoom, mMeetingStartDate, mMeetingEndDate)) {
             popupErrorMessage( R.string.room_already_booked );
         } else {
-
             Meeting meeting = new Meeting(
                     mMeetingId,
                     mMeetingStartDate,
@@ -239,7 +231,6 @@ public class AddMeetingActivity extends AppCompatActivity {
 
      private void popupErrorMessage(int intString) {
         Toast alertToast = Toast.makeText(this, intString, Toast.LENGTH_SHORT);
-//         TextView alertError =  ;
          alertToast.show();
 
     }
@@ -264,6 +255,7 @@ public class AddMeetingActivity extends AppCompatActivity {
         mMeetingEndDate = calEnd.getTime();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     private void configureDayOfMeetingSelected(){
         mMeetingBtnDay.setOnClickListener(v -> {
             // Get Current Date
@@ -292,6 +284,7 @@ public class AddMeetingActivity extends AppCompatActivity {
                             mMeetingDayAdded = true;
                         }
                     }, mYear, mMonth, mDay);
+            datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.MONDAY);
             datePickerDialog.show();
         });
 
