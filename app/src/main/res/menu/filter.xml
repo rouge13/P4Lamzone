@@ -19,8 +19,12 @@
                 android:id="@+id/cancel_filters"
                 android:title="@string/cancel_filters" />
 
+            <item
+                android:id="@+id/backward_button"/>
+
         </menu>
     </item>
+
 
 
 </menu>

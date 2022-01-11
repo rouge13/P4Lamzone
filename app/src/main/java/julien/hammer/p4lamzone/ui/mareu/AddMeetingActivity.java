@@ -11,6 +11,7 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.format.DateUtils;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -18,6 +19,7 @@ import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.MultiAutoCompleteTextView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -25,6 +27,7 @@ import android.widget.TimePicker;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatMultiAutoCompleteTextView;
 import androidx.core.app.ActivityCompat;
@@ -34,6 +37,7 @@ import androidx.fragment.app.FragmentActivity;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.google.android.material.button.MaterialButton;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
 import java.text.DateFormat;
@@ -98,6 +102,9 @@ public class AddMeetingActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.btn_time_end)
     Button mMeetingBtnTimeEnd;
+//    @SuppressLint("NonConstantResourceId")
+//    @BindView(R.id.item_backward_button)
+//    public ImageView mBackwardButton;
 //    ("01 17 2012 10:00:00")
     private Room mSeletedRoom;
     private int mYear, mMonth, mDay, mHourStart, mMinuteStart, mHourEnd, mMinuteEnd;
@@ -120,6 +127,15 @@ public class AddMeetingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_meeting);
         ButterKnife.bind(this);
         mApiService = DI.getMareuApiService();
+        ActionBar actionBar = getSupportActionBar(); if (actionBar != null) { actionBar.setDisplayHomeAsUpEnabled(true); actionBar.setHomeButtonEnabled(true); getSupportActionBar().setDisplayHomeAsUpEnabled(true); }
+
+//        // calling the action bar
+//        ActionBar actionBar = getSupportActionBar();
+//        // Customize the back button
+//        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24_white);
+//        // showing the back button in action bar
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//        configureBackwardButtonClick();
 //        mMeetingBtnDay.setOnClickListener();
 //        mMeetingBtnTimeStart.setOnClickListener(this);
 //        mMeetingBtnTimeEnd.setOnClickListener(this);
@@ -129,6 +145,25 @@ public class AddMeetingActivity extends AppCompatActivity {
         configureStartTimeOfMeetingSelected();
         configureEndTimeOfMeetingSelected();
     }
+    @Override public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true; }
+    @SuppressLint("NonConstantResourceId")
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.backward_button:
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+
+    }
+
     private void configureSpinnerRoom() {
         //get List Room
         List<String> roomNameList = new ArrayList<>();
@@ -320,6 +355,15 @@ public class AddMeetingActivity extends AppCompatActivity {
         });
     }
 
+//    private void configureBackwardButtonClick(){
+//        // calling the action bar
+//        ActionBar actionBar = getSupportActionBar();
+//        // Customize the back button
+//        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24_white);
+//        // showing the back button in action bar
+//        actionBar.setDisplayHomeAsUpEnabled(true);
+//    }
+
     private void configureEndTimeOfMeetingSelected(){
         mMeetingBtnTimeEnd.setOnClickListener(v -> {
             // Get Current Time
@@ -348,6 +392,7 @@ public class AddMeetingActivity extends AppCompatActivity {
             timePickerDialog.show();
         });
     }
+
 
 }
 

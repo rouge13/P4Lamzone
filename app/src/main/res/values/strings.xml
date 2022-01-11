@@ -23,7 +23,7 @@
     <string name="room_filter_selected">Filtre par salle.</string>
     <string name="cancel_filters">Annuler les filtres.</string>
     <string name="already_in_list">Ce participant est déjà inscrit.</string>
-
+    <string name="backward_button">Bouton pour retourner en arrière.</string>
 
 
 </resources>

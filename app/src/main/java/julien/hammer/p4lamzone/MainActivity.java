@@ -26,6 +26,7 @@ import android.widget.DatePicker;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.tabs.TabLayout;
 
 import org.greenrobot.eventbus.EventBus;
@@ -65,8 +66,6 @@ public class MainActivity extends AppCompatActivity {
 //    @SuppressLint("NonConstantResourceId")
 //    @BindView(R.id.room_filter)
 //    MenuItem mRoomFilter;
-    Boolean mRoomFilterActivated = false;
-    Boolean mDateFilterActivated = false;
     List<Meeting> mMeetings = null;
     List<User> mUsers = null;
     List<Room> mRooms = null;
@@ -78,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         mApiService = DI.getMareuApiService();
         setContentView(R.layout.activity_main);
+//        configureActionButtonBackward();
         ButterKnife.bind(this);
 //        setSupportActionBar(mToolbar);
+        mMeetings = mApiService.getMeetings();
         initList();
     }
 
@@ -127,9 +128,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void initList() {
 
-        if (!mDateFilterActivated & !mRoomFilterActivated){
-            mMeetings = mApiService.getMeetings();
-        }
         mUsers = mApiService.getUsers();
         mRooms = mApiService.getRooms();
 //        mMareuRecyclerViewAdapter = new MareuRecyclerViewAdapter(mMeetings,mUsers,mRooms);
@@ -194,7 +192,6 @@ public class MainActivity extends AppCompatActivity {
 //                            SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy", Locale.FRANCE);
 //                            mApiService.getMeetingsByDate(cal.getTime());
                             mMeetings = mApiService.getMeetingsByDate(cal.getTime());
-                            mDateFilterActivated = true;
                             initList();
 
                         }
@@ -219,7 +216,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 mMeetings = mApiService.getMeetingsByRoom(mRooms.get(which));
-                mRoomFilterActivated = true;
                 initList();
 
             }
@@ -232,8 +228,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void cancelFilters(){
-        mRoomFilterActivated = false;
-        mDateFilterActivated = false;
+        mMeetings = mApiService.getMeetings();
         initList();
     }
 
@@ -247,4 +242,12 @@ public class MainActivity extends AppCompatActivity {
 //        mDateFilter = true;
 //    }
 
+//    // Retour en arrière sur la dernière fenêtre active
+//    private void configureActionButtonBackward() {
+//        mBackwardButton.setOnClickListener (view -> {
+//            Snackbar.make(view, "Retour en arrière", Snackbar.LENGTH_LONG)
+//                    .setAction("Action", null).show();
+//            finish();
+//        });
+//    }
 }

@@ -45,37 +45,49 @@ public  abstract class ProjectMareuGenerator {
             new Room(9, "Wario"),
             new Room(10, "Waluigi")
     );
+    public static Meeting FAKE_MEETING = null;
+    static {
+        try {
+            FAKE_MEETING = new Meeting(1, dateFormat.parse("11 15 2021 10:00:00"), dateFormat.parse("11 15 2021 13:00:00"), "reunion A", Arrays.asList(FAKE_USERS.get(1), FAKE_USERS.get(2)), FAKE_ROOMS.get(1));
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static List<Meeting> FAKE_MEETINGS = null;
 
     static {
         try {
             FAKE_MEETINGS = Arrays.asList(
-                                new Meeting(1, dateFormat.parse("11 15 2021 10:00:00"), dateFormat.parse("11 15 2021 12:00:00"), "reunion A", Arrays.asList(FAKE_USERS.get(1), FAKE_USERS.get(2)), FAKE_ROOMS.get(1)),
-                                new Meeting(2, dateFormat.parse("11 15 2021 10:00:00"), dateFormat.parse("11 15 2021 12:00:00"), "reunion B", Arrays.asList(FAKE_USERS.get(3), FAKE_USERS.get(4)), FAKE_ROOMS.get(2)),
+                                FAKE_MEETING,
+                                new Meeting(2, dateFormat.parse("11 16 2021 10:00:00"), dateFormat.parse("11 16 2021 13:00:00"), "reunion B", Arrays.asList(FAKE_USERS.get(3), FAKE_USERS.get(4)), FAKE_ROOMS.get(2)),
                                 new Meeting(3, dateFormat.parse("11 14 2021 09:00:00"), dateFormat.parse("11 14 2021 11:00:00"), "reunion C", Arrays.asList(FAKE_USERS.get(5), FAKE_USERS.get(6)), FAKE_ROOMS.get(3))
                 );
         } catch (ParseException e) {
             e.printStackTrace();
         }
     }
+    public static List<Meeting> MEETING_BY_DATE_LIST = Arrays.asList(FAKE_MEETING);
+    public static List<Meeting> MEETING_BY_ROOM_LIST = Arrays.asList(FAKE_MEETING);
+
 
     static List<Meeting> generateMeetings() {
         return new ArrayList<>(FAKE_MEETINGS);
     }
 
     // Créer une nouvelle liste MEETING_BY_DATE_LIST pour stocker les Meetings qui sont classé par Date
-    public static List<Meeting> MEETING_BY_DATE_LIST = Arrays.asList();
-    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
-    static List<Meeting> generateMeetingsByDate() {
-        return new ArrayList<>(MEETING_BY_DATE_LIST);
-    }
-
-    // Créer une nouvelle liste MEETING_BY_ROOM_LIST pour stocker les Meetings qui sont classé par Date
-    public static List<Meeting> MEETING_BY_ROOM_LIST = Arrays.asList();
-    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
-    static List<Meeting> generateMeetingsByRoom() {
-        return new ArrayList<>(MEETING_BY_ROOM_LIST);
-    }
+//    public static List<Meeting> MEETING_BY_DATE_LIST = Arrays.asList();
+//    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
+//    static List<Meeting> generateMeetingsByDate() {
+//        return new ArrayList<>(MEETING_BY_DATE_LIST);
+//    }
+//
+//    // Créer une nouvelle liste MEETING_BY_ROOM_LIST pour stocker les Meetings qui sont classé par Date
+//    public static List<Meeting> MEETING_BY_ROOM_LIST = Arrays.asList();
+//    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
+//    static List<Meeting> generateMeetingsByRoom() {
+//        return new ArrayList<>(MEETING_BY_ROOM_LIST);
+//    }
 
     static List<Room> generateRooms() {
         return new ArrayList<>(FAKE_ROOMS);

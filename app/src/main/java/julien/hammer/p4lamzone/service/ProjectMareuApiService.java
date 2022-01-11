@@ -18,8 +18,8 @@ public class ProjectMareuApiService implements MareuApiService {
     private final List<User> users = ProjectMareuGenerator.generateUsers();
     private final List<Room> rooms = ProjectMareuGenerator.generateRooms();
     private final List<Meeting> meetings = ProjectMareuGenerator.generateMeetings();
-    private final List<Meeting> meetingsByDate = ProjectMareuGenerator.generateMeetingsByDate();
-    private final List<Meeting> meetingsByRoom = ProjectMareuGenerator.generateMeetingsByRoom();
+//    private final List<Meeting> meetingsByDate = ProjectMareuGenerator.generateMeetingsByDate();
+//    private final List<Meeting> meetingsByRoom = ProjectMareuGenerator.generateMeetingsByRoom();
     @Override
     public List<User> getUsers() { return users; }
     @Override
@@ -49,6 +49,7 @@ public class ProjectMareuApiService implements MareuApiService {
                         && meeting.getEndOfTheMeeting().before(endDate)
                         || meeting.getStartOfTheMeeting().before(startDate)
                         && meeting.getEndOfTheMeeting().after(endDate)) {
+
                     return false;
                 }
             }
@@ -56,7 +57,7 @@ public class ProjectMareuApiService implements MareuApiService {
         return true;
     }
     public List<Meeting> getMeetingsByDate(Date date) {
-        meetingsByDate.clear();
+        List<Meeting> meetingsByDate = new ArrayList<>();
         Calendar c = Calendar.getInstance();
         c.setTime(date);
         for (Meeting meeting : meetings) {
@@ -71,7 +72,7 @@ public class ProjectMareuApiService implements MareuApiService {
 
     @Override
     public List<Meeting> getMeetingsByRoom(Room room) {
-        meetingsByRoom.clear();
+        List<Meeting> meetingsByRoom = new ArrayList<>();
         for (Meeting meeting : meetings) {
             if (meeting.getRoom()==room) {
                 meetingsByRoom.add(meeting);
