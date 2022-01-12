@@ -39,14 +39,14 @@ public class Meeting {
     /**
      * Meeting Rooms
      */
-    private List<Room> rooms;
+    private Room room;
 
-    public Meeting(Integer id, Date startOfTheMeeting, Date endOfTheMeeting, String subject, List<User> users, Room rooms) {
+    public Meeting(Integer id, Date startOfTheMeeting, Date endOfTheMeeting, String subject, List<User> users, Room room) {
         this.id = id;
         this.startOfTheMeeting = startOfTheMeeting;
         this.endOfTheMeeting = endOfTheMeeting;
         this.subject = subject;
-        this.rooms = rooms;
+        this.room = room;
         this.users = users;
     }
 
@@ -129,9 +129,9 @@ public class Meeting {
 
     public void setUsers(List<User> users) { this.users = users; }
 
-    public List<Room> getRooms() { return rooms; }
+    public Room getRoom() { return room; }
 
-    public void setRooms(List<Room> rooms) { this.rooms = rooms; }
+    public void setRoom(Room room) { this.room= room; }
 
     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
     @Override

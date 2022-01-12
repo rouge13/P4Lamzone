@@ -1,5 +1,6 @@
 package julien.hammer.p4lamzone.service;
 
+import java.util.Date;
 import java.util.List;
 
 import julien.hammer.p4lamzone.model.Meeting;
@@ -30,5 +31,20 @@ public interface MareuApiService {
      */
     // Get all the meetings
     List<Meeting> getMeetings();
+
+    // Get all the meetings sorted by date
+    List<Meeting> getMeetingsByDate(Date date);
+    // Get all the meetings sorted by room
+    List<Meeting> getMeetingsByRoom(Room room);
+
+    // Delete a specific meeting
+    void deleteMeeting(Meeting meetingToDelete);
+
+    // Add a new meeting
+    void createMeeting(Meeting meeting);
+
+    // Check if the room is already booked
+    boolean checkRoomBookedOff(int roomId, Date startDate, Date endDate) ;
+
 
 }

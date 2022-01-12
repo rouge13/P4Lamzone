@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="fab_margin">40dp</dimen>
+    <dimen name="appbar_padding_top">8dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!-- activity_main dimensions -->
+    <dimen name="activity_main_button_height">80dp</dimen>
+    <dimen name="activity_main_button_width">80dp</dimen>
+    <dimen name="activity_main_title_text_toolbar">40sp</dimen>
+    <dimen name="activity_main_title_toolbar_height">80dp</dimen>
+
+
+    <!-- All the meetings Items in the RecyclerView "activity_main_fragment" in activity_main_meeting_item. -->
+
+    <!-- The pastils -->
+    <dimen name="pastil_states_width">60dp</dimen>
+    <dimen name="pastil_states_height">60dp</dimen>
+    <dimen name="pastil_states_margin_start">16dp</dimen>
+    <dimen name="pastil_states_margin_top">16dp</dimen>
+    <dimen name="pastil_states_margin_bottom">16dp</dimen>
+
+    <!-- The meetings title -->
+    <dimen name="meeting_item_title_width">250dp</dimen>
+    <dimen name="meeting_item_title_margin_start">8dp</dimen>
+    <dimen name="meeting_item_title_margin_top">20dp</dimen>
+    <dimen name="meeting_item_title_margin_end">8dp</dimen>
+    <dimen name="meeting_item_title_text_size">19sp</dimen>
+
+    <!-- The mails of the users -->
+    <dimen name="mails_item_list_width">250dp</dimen>
+    <dimen name="mails_item_list_margin_start">8dp</dimen>
+    <dimen name="mails_item_list_margin_end">8dp</dimen>
+    <dimen name="mails_list_text_size">15sp</dimen>
+
+    <!-- The icon Delete -->
+    <dimen name="ic_delete_item_width">31dp</dimen>
+    <dimen name="ic_delete_item_height">31dp</dimen>
+    <dimen name="ic_delete_item_margin_top">20dp</dimen>
+    <dimen name="ic_delete_item_margin_end">16dp</dimen>
+    <dimen name="ic_delete_item_margin_bottom">20dp</dimen>
+
+
+
+
+
+
+
+</resources>
