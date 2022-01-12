@@ -275,6 +275,7 @@ public class ProjectActivitiesTest {
     public void addANewMeetingTest(){
         //        // Vérification que nous avons bien 3 éléments dans notre liste de meetings
         onView(AllOf.allOf(withId(R.id.list_meetings), isDisplayed())).check(matches(hasChildCount(3)));
+
         ViewInteraction floatingActionButton = onView(
                 allOf(withId(R.id.add_meeting), withContentDescription("Add a new meeting"),
                         childAtPosition(
@@ -285,13 +286,9 @@ public class ProjectActivitiesTest {
                                 1),
                         isDisplayed()));
         floatingActionButton.perform(click());
-
         onView(allOf(withId(R.id.subject_name))).perform(replaceText("Reunion D"), closeSoftKeyboard());
-
         onView(allOf(withId(R.id.textEmailAddress))).perform(typeText("c"), closeSoftKeyboard());
-
         ViewInteraction materialTextView2 = onData(equalTo("charles@lamzone.com")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
-
         // Show the date picker
         onView(withId(R.id.btn_date)).perform(click());
         // Sets a date on the date picker widget
@@ -303,7 +300,6 @@ public class ProjectActivitiesTest {
         // Check if the selected date is correct and is displayed in the Ui.
         onView(withId(R.id.in_date)).check(matches(allOf(withText("12/01/2022"),
                 isDisplayed())));
-
         // Show the TimeStart picker
         onView(withId(R.id.btn_time_start)).perform(click());
         // Sets a time in a view picker widget
@@ -313,7 +309,6 @@ public class ProjectActivitiesTest {
         // Check if the date result is displayed.
         onView(withId(R.id.in_time_start)).check(matches(allOf(withText("09:30"),
                 isDisplayed())));
-
         // Show the TimeEnd picker
         onView(withId(R.id.btn_time_end)).perform(click());
         // Sets a time in a view picker widget
@@ -323,15 +318,10 @@ public class ProjectActivitiesTest {
         // Check if the date result is displayed.
         onView(withId(R.id.in_time_end)).check(matches(allOf(withText("12:00"),
                 isDisplayed())));
-
-//        ViewInteraction customTextView = onData(equalTo("Peach")).inRoot(RootMatchers.isPlatformPopup()).perform(click());
         onView(withId(R.id.spinner_room_to_select)).perform(click());
         onData(anything()).atPosition(1).perform(click());
         onView(withId(R.id.spinner_room_to_select)).check(matches(withSpinnerText(is("Luigi"))));
-
         onView(withId(R.id.create_meeting)).perform(click());
-
-        // Vérifier si l'ajout d'un des meetings est bien fait dans la liste des meetings 3 pour le nombre de meetings dans la liste car suppression du premier.
         onView(AllOf.allOf(withId(R.id.list_meetings), isDisplayed())).check(matches(hasChildCount(4)));
     }
 
@@ -358,10 +348,4 @@ public class ProjectActivitiesTest {
             }
         };
     }
-
-//    public static void setDate(int datePickerLaunchViewId, int year, int monthOfYear, int dayOfMonth) {
-//        onView(withParent(withId(buttonContainer)), withId(datePickerLaunchViewId)).perform(click());
-//        onView(isAssignableFrom(DatePicker.class)).perform(PickerActions.setDate(year, monthOfYear, dayOfMonth));
-//        onView(withId(android.R.id.button1)).perform(click());
-//    }
 }

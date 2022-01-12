@@ -50,49 +50,6 @@ public class Meeting {
         this.users = users;
     }
 
-
-//
-//    protected Meeting(Parcel in) {
-//        if (in.readByte() == 0) {
-//            id = null;
-//        } else {
-//            id = in.readInt();
-//        }
-//        long tmpStartOfTheMeeting = in.readLong();
-//        this.startOfTheMeeting = tmpStartOfTheMeeting == -1 ? null : new Date(tmpStartOfTheMeeting);
-//        long tmpEndOfTheMeeting = in.readLong();
-//        this.endOfTheMeeting = tmpEndOfTheMeeting == -1 ? null : new Date(tmpEndOfTheMeeting);
-//        subject = in.readString();
-////        this.startOfTheMeeting = tmpStartOfTheMeeting == -1 ? null : new DateFormat()
-////        startOfTheMeeting = in.readString();
-////        long tmpStartOfTheMeeting = in.readLong();
-////        this.startOfTheMeeting = tmpStartOfTheMeeting == -1 ? null : new DateFormat() {
-////            @NonNull
-////            @Override
-////            public StringBuffer format(@NonNull Date date, @NonNull StringBuffer toAppendTo, @NonNull FieldPosition fieldPosition) {
-////                return null;
-////            }
-////
-////            @Nullable
-////            @Override
-////            public Date parse(@NonNull String source, @NonNull ParsePosition pos) {
-////                return null;
-////            }
-////        };
-//    }
-
-//    public static final Creator<Meeting> CREATOR = new Creator<Meeting>() {
-//        @Override
-//        public Meeting createFromParcel(Parcel in) {
-//            return new Meeting(in);
-//        }
-//
-//        @Override
-//        public Meeting[] newArray(int size) {
-//            return new Meeting[size];
-//        }
-//    };
-
     public Integer getId() {
         return id;
     }
@@ -148,22 +105,5 @@ public class Meeting {
         return Objects.hash(id);
     }
 
-//    @Override
-//    public int describeContents() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public void writeToParcel(Parcel dest, int flags) {
-//        if (id == null) {
-//            dest.writeByte((byte) 0);
-//        } else {
-//            dest.writeByte((byte) 1);
-//            dest.writeInt(id);
-//        }
-//        dest.writeLong(startOfTheMeeting != null ? startOfTheMeeting.getTime() : -1);
-//        dest.writeLong(endOfTheMeeting != null ? endOfTheMeeting.getTime() : -1);
-//        dest.writeString(subject);
-//    }
 }
 

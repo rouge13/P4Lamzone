@@ -18,8 +18,7 @@ public class ProjectMareuApiService implements MareuApiService {
     private final List<User> users = ProjectMareuGenerator.generateUsers();
     private final List<Room> rooms = ProjectMareuGenerator.generateRooms();
     private final List<Meeting> meetings = ProjectMareuGenerator.generateMeetings();
-//    private final List<Meeting> meetingsByDate = ProjectMareuGenerator.generateMeetingsByDate();
-//    private final List<Meeting> meetingsByRoom = ProjectMareuGenerator.generateMeetingsByRoom();
+
     @Override
     public List<User> getUsers() { return users; }
     @Override
@@ -56,6 +55,7 @@ public class ProjectMareuApiService implements MareuApiService {
         }
         return true;
     }
+
     public List<Meeting> getMeetingsByDate(Date date) {
         List<Meeting> meetingsByDate = new ArrayList<>();
         Calendar c = Calendar.getInstance();

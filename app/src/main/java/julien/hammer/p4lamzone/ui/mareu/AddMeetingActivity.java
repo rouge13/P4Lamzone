@@ -102,10 +102,6 @@ public class AddMeetingActivity extends AppCompatActivity {
     @SuppressLint("NonConstantResourceId")
     @BindView(R.id.btn_time_end)
     Button mMeetingBtnTimeEnd;
-//    @SuppressLint("NonConstantResourceId")
-//    @BindView(R.id.item_backward_button)
-//    public ImageView mBackwardButton;
-//    ("01 17 2012 10:00:00")
     private Room mSeletedRoom;
     private int mYear, mMonth, mDay, mHourStart, mMinuteStart, mHourEnd, mMinuteEnd;
     List<User> usersAddedInMeeting = new ArrayList<>();
@@ -128,17 +124,6 @@ public class AddMeetingActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         mApiService = DI.getMareuApiService();
         ActionBar actionBar = getSupportActionBar(); if (actionBar != null) { actionBar.setDisplayHomeAsUpEnabled(true); actionBar.setHomeButtonEnabled(true); getSupportActionBar().setDisplayHomeAsUpEnabled(true); }
-
-//        // calling the action bar
-//        ActionBar actionBar = getSupportActionBar();
-//        // Customize the back button
-//        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24_white);
-//        // showing the back button in action bar
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//        configureBackwardButtonClick();
-//        mMeetingBtnDay.setOnClickListener();
-//        mMeetingBtnTimeStart.setOnClickListener(this);
-//        mMeetingBtnTimeEnd.setOnClickListener(this);
         configureSpinnerRoom();
         configureMultiAutoComplete();
         configureDayOfMeetingSelected();
@@ -161,23 +146,18 @@ public class AddMeetingActivity extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-
     }
 
     private void configureSpinnerRoom() {
-        //get List Room
         List<String> roomNameList = new ArrayList<>();
         List<Room> mRooms = mApiService.getRooms();
         for(Room room:mRooms){
             roomNameList.add(room.getName());
         }
-//        mSpinnerRooms = (Spinner)findViewById(R.id.spinner_room_to_select);
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this,
                 android.R.layout.simple_spinner_item,roomNameList);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinnerRooms.setAdapter(adapter);
-//        mSpinnerRooms.setOnItemSelectedListener(this);
-        //add values in room arrayList
         mSpinnerRooms.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View v, int position, long id) {
@@ -189,24 +169,17 @@ public class AddMeetingActivity extends AppCompatActivity {
         });
     }
 
-
     private void configureMultiAutoComplete() {
         mUsers = mApiService.getUsers();
         for(User user:mUsers){
                 userEmailList.add(user.getEmail().toLowerCase());
         }
-//        AppCompatMultiAutoCompleteTextView mTextEmailAddress = findViewById(R.id.textEmailAddress);
         ArrayAdapter<String> adapterEmail
                 = new ArrayAdapter<>(this,android.R.layout.simple_list_item_1,userEmailList);
         mTextEmailAddress.setAdapter(adapterEmail);
-
         mTextEmailAddress.setThreshold(1);
         // The text separated by commas
         mTextEmailAddress.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
-//        userEmailList.remove(adapterEmail.getItem().);
-//         } else {
-//             popupErrorMessage( R.string.already_in_list );
-//         }
     }
 
     /**
@@ -302,13 +275,10 @@ public class AddMeetingActivity extends AppCompatActivity {
 
             DatePickerDialog datePickerDialog = new DatePickerDialog(this,
                     new DatePickerDialog.OnDateSetListener() {
-
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onDateSet(DatePicker view, int year,
                                               int monthOfYear, int dayOfMonth) {
-//                            mMeetingDay.setText((monthOfYear + 1) + " " + dayOfMonth +  " " + year);
-//                            mMeetingDay.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             Calendar cal = Calendar.getInstance();
                             cal.set(Calendar.YEAR,year);
                             cal.set(Calendar.MONTH,monthOfYear);
@@ -322,7 +292,6 @@ public class AddMeetingActivity extends AppCompatActivity {
             datePickerDialog.getDatePicker().setFirstDayOfWeek(Calendar.MONDAY);
             datePickerDialog.show();
         });
-
     }
 
     private void configureStartTimeOfMeetingSelected(){
@@ -355,26 +324,15 @@ public class AddMeetingActivity extends AppCompatActivity {
         });
     }
 
-//    private void configureBackwardButtonClick(){
-//        // calling the action bar
-//        ActionBar actionBar = getSupportActionBar();
-//        // Customize the back button
-//        actionBar.setHomeAsUpIndicator(R.drawable.ic_baseline_arrow_back_24_white);
-//        // showing the back button in action bar
-//        actionBar.setDisplayHomeAsUpEnabled(true);
-//    }
-
     private void configureEndTimeOfMeetingSelected(){
         mMeetingBtnTimeEnd.setOnClickListener(v -> {
             // Get Current Time
             final Calendar c = Calendar.getInstance();
             mHourEnd = c.get(Calendar.HOUR_OF_DAY);
             mMinuteEnd = c.get(Calendar.MINUTE);
-
             // Launch Time Picker Dialog
             TimePickerDialog timePickerDialog = new TimePickerDialog(this,
                     new TimePickerDialog.OnTimeSetListener() {
-
                         @SuppressLint("SetTextI18n")
                         @Override
                         public void onTimeSet(TimePicker view, int hourOfDay,
@@ -392,7 +350,5 @@ public class AddMeetingActivity extends AppCompatActivity {
             timePickerDialog.show();
         });
     }
-
-
 }
 
