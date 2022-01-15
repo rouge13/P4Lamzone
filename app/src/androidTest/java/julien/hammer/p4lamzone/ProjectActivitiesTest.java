@@ -273,7 +273,6 @@ public class ProjectActivitiesTest {
 
     @Test
     public void addANewMeetingTest(){
-        //        // Vérification que nous avons bien 3 éléments dans notre liste de meetings
         onView(AllOf.allOf(withId(R.id.list_meetings), isDisplayed())).check(matches(hasChildCount(3)));
 
         ViewInteraction floatingActionButton = onView(
