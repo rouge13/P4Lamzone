@@ -15,7 +15,6 @@ import julien.hammer.p4lamzone.model.User;
  * Created by Julien HAMMER - Apprenti Java with openclassrooms on .
  */
 public  abstract class ProjectMareuGenerator {
-
     //current date format
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MM dd yyyy hh:mm:ss", Locale.FRANCE);
 
@@ -67,32 +66,15 @@ public  abstract class ProjectMareuGenerator {
             e.printStackTrace();
         }
     }
+
     public static List<Meeting> MEETING_BY_DATE_LIST = Arrays.asList(FAKE_MEETING);
     public static List<Meeting> MEETING_BY_ROOM_LIST = Arrays.asList(FAKE_MEETING);
-
-
     static List<Meeting> generateMeetings() {
         return new ArrayList<>(FAKE_MEETINGS);
     }
-
-    // Créer une nouvelle liste MEETING_BY_DATE_LIST pour stocker les Meetings qui sont classé par Date
-//    public static List<Meeting> MEETING_BY_DATE_LIST = Arrays.asList();
-//    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
-//    static List<Meeting> generateMeetingsByDate() {
-//        return new ArrayList<>(MEETING_BY_DATE_LIST);
-//    }
-//
-//    // Créer une nouvelle liste MEETING_BY_ROOM_LIST pour stocker les Meetings qui sont classé par Date
-//    public static List<Meeting> MEETING_BY_ROOM_LIST = Arrays.asList();
-//    // Générer la liste qui va nous retourner les MEETING_BY_DATE_LIST qui provient de ProjectMareuApiService de la fonction getMeetingsByDate
-//    static List<Meeting> generateMeetingsByRoom() {
-//        return new ArrayList<>(MEETING_BY_ROOM_LIST);
-//    }
-
     static List<Room> generateRooms() {
         return new ArrayList<>(FAKE_ROOMS);
     }
-
     static List<User> generateUsers() {
         return new ArrayList<>(FAKE_USERS);
     }

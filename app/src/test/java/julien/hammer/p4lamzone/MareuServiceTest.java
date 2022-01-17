@@ -29,7 +29,6 @@ import static org.junit.Assert.*;
 public class MareuServiceTest {
     //current date format
     private static final SimpleDateFormat dateFormat = new SimpleDateFormat("MM dd yyyy hh:mm:ss", Locale.FRANCE);
-//    private static final SimpleDateFormat searchDateFormat = new SimpleDateFormat("MM dd yyyy", Locale.FRANCE);
     private MareuApiService service;
     @Before
     public void setUp(){

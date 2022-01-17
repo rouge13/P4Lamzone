@@ -6,6 +6,7 @@ import julien.hammer.p4lamzone.service.ProjectMareuApiService;
 /**
  * Created by Julien HAMMER - Apprenti Java with openclassrooms on .
  */
+// dependency injection
 public class DI {
     private static MareuApiService service = new ProjectMareuApiService();
 

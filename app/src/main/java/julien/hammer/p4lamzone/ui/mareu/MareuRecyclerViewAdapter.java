@@ -53,13 +53,6 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         this.mRooms = mRooms;
     }
 
-
-//    @BindDrawable(R.drawable.ic_baseline_brightness_pale_green_1_24)
-//    public Drawable mPastilMoreThan5CanJoin;
-//    @BindDrawable(R.drawable.ic_baseline_brightness_pale_orange_1_24)
-//    public Drawable mPastilBellow5CanJoin;
-
-
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
@@ -75,7 +68,6 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         DateFormat dateFormat = new SimpleDateFormat("HH:mm", Locale.FRANCE);
         String strDate = dateFormat.format(date);
         holder.mMeetingTitleItem.setText(holder.mMeetingTitleItem.getContext().getString(R.string.meetingItemTitle,meeting.getSubject(), strDate, meeting.getRoom().getName()));
-//        holder.mMeetingTitleItem.setText(String.format( meeting.getSubject(), strDate, meeting.getRoom()));
         if (meeting.getUsers().size() < 5) {
             holder.mMeetingPastil.setImageResource(R.drawable.ic_baseline_brightness_pale_green_1_24);
         } else {
@@ -83,10 +75,7 @@ public class MareuRecyclerViewAdapter extends RecyclerView.Adapter<MareuRecycler
         }
         List<String> userEmailList = new ArrayList<>();
         for(User user:meeting.getUsers()){
-//            for (int i = 0; i < meeting.getUsers().size(); i++){
-//                holder.mMeetingMailsItem.setText(mUsers.get(i).getEmail());
                 userEmailList.add(user.getEmail().toLowerCase());
-//            }
         }
         holder.mMeetingMailsItem.setText(userEmailList.toString().replace("[","").replace("]",""));
         holder.mMeetingMailsItem.setOnClickListener(new View.OnClickListener() {
